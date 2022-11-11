@@ -38,5 +38,4 @@ To log into OFBiz, navigate with your browser to https://localhost:8443/accounti
 
 ### Resources
 - https://medium.com/@devkosal/switching-java-jdk-versions-on-macos-80bc868e686a
-<br>
 - https://dzone.com/articles/install-openjdk-versions-on-the-mac
