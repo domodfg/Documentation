@@ -4,6 +4,10 @@ To Install Java (openjdk version 1.8.0.352)
 ```
 sudo apt-get install openjdk-8-jdk
 ```
+Switch to Java version (openjdk version 1.8.0.352)
+```
+sudo update-alternatives --config java
+```
 Check Java version
 ```
 java -version
@@ -29,10 +33,6 @@ git checkout release18.12.04
 To build the program
 ```
 ./gradlew cleanAll loadAll
-```
-You can try to switch to other version if the program can't compile
-```
-sudo update-alternatives --config java
 ```
 To run the program
 ```
