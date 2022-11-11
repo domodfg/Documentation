@@ -26,7 +26,7 @@ cd ofbiz-framework
 git fetch --all --tags
 ```
 ```
-git checkout release18.12.04
+git checkout release18.12.05
 ```
 
 Then Inside Windows CMD type:
