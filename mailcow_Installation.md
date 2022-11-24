@@ -53,4 +53,4 @@ Check out the webmail to test whether it's working
 https://${MAILCOW_HOSTNAME}/SOGo
 ```
 ## Resources
--https://docs.mailcow.email/i_u_m/i_u_m_install/#installation-via-script-standalone
+- https://docs.mailcow.email/i_u_m/i_u_m_install/#installation-via-script-standalone
