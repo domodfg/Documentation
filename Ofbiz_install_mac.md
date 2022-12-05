@@ -28,7 +28,7 @@ git checkout release18.12.04
 ```
 To build the program
 ```
-./gradlew cleanAll loadAll
+./gradlew "ofbiz --load-data readers=seed,seed-initial" loadAdminUserLogin -PuserLoginId=admin
 ```
 To run the program
 ```
