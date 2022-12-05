@@ -34,7 +34,7 @@ Then Inside Windows CMD type:
 cd Downloads/ofbiz-framework
 ```
 ```
-gradlew cleanAll loadAll
+gradlew "ofbiz --load-data readers=seed,seed-initial" loadAdminUserLogin -PuserLoginId=admin
 ```
 
 After finish building, type:
