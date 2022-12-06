@@ -1,0 +1,23 @@
+server {
+    listen 80 ;
+	listen [::]:80;
+
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	
+	ssl_certificate /opt/mailcow-dockerized/data/assets/ssl/cert.pem;
+    ssl_certificate_key /opt/mailcow-dockerized/data/assets/ssl/key.pem;
+
+	server_name mail.example.com;
+	
+	root /var/www/html;
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+	
+	location / {
+		 proxy_pass https://127.0.0.1:444;
+		 proxy_buffer_size 128k;
+         proxy_buffers 64 512k;
+		 proxy_busy_buffers_size 512k;
+	}
+}
