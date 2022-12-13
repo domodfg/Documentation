@@ -11,7 +11,7 @@ server {
 	ssl_certificate /opt/mailcow-dockerized/data/assets/ssl/example.pem;
         ssl_certificate_key /opt/mailcow-dockerized/data/assets/ssl/example.pem;
 
-	server_name mail.kryedu.org;
+	server_name mail.example.org;
 	
 	root /var/www/html;
 	# Add index.php to the list if you are using PHP

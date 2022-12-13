@@ -7,7 +7,7 @@ server {
     modsecurity on;
     modsecurity_rules_file /etc/nginx/modsec/main.conf;
 
-    server_name kryholding.com;
+    server_name example-wp.com;
 
     ssl_certificate /etc/ssl/certs/example.pem;
     ssl_certificate_key /etc/ssl/private/example.key;
