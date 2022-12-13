@@ -9,20 +9,19 @@ server {
 	
         listen 443 ssl ;
 	listen [::]:443 ssl ;
+	ssl_certificate /etc/ssl/certs/example.pem;
+	ssl_certificate_key /etc/ssl/private/example.key;
 
-	ssl_certificate /etc/letsencrypt/live/example.org/example.pem;
-        ssl_certificate_key /etc/letsencrypt/live/example.org/example.pem;
-	
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 
-	server_name kryedu.org;
+	server_name gdmid.com;
 
 	location / {
-	  proxy_pass http://127.0.0.1:8080;
-	  proxy_buffering off;
+	  proxy_pass http://192.168.0.109:8080;
+	  proxy_set_header Host $http_host;
 	  proxy_set_header X-Real-IP $remote_addr;
-	  proxy_set_header X-Forwarded-Host $host;
-	  proxy_set_header X-Forwarded-Port $server_port;
+	  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	  proxy_set_header X-Forwarded-Proto $scheme;
 	}
 }

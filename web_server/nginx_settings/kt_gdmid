@@ -1,0 +1,29 @@
+server {
+	listen 80 ;
+	listen [::]:80;
+
+	modsecurity on;
+	modsecurity_rules_file /etc/nginx/modsec/main.conf;
+
+	# SSL configuration
+	
+        listen 443 ssl ;
+	listen [::]:443 ssl ;
+
+	ssl_certificate /etc/ssl/certs/example.pem;
+	ssl_certificate_key /etc/ssl/private/example.key;
+	
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name krytech.gdmid.com;
+
+	location / {
+	  proxy_pass http://192.168.0.109:8008;
+	  proxy_set_header Host $http_host;
+	  proxy_set_header X-Real-IP $remote_addr;
+	  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	  proxy_set_header X-Forwarded-Proto $scheme;
+	}
+}
+

@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    listen [::]:80;
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    modsecurity on;
+    modsecurity_rules_file /etc/nginx/modsec/main.conf;
+
+    server_name kryholding.com;
+
+    ssl_certificate /etc/ssl/certs/example.pem;
+    ssl_certificate_key /etc/ssl/private/example.key;
+
+    root /var/www/wordpress;
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+	fastcgi_param  SCRIPT_FILENAME  /var/www/wordpress$fastcgi_script_name;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+    }
+}
